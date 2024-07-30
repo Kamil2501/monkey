@@ -80,6 +80,15 @@ func (l *Lexer) skipWhiteSpace() {
 	}
 }
 
+func (l *Lexer) readNumber() string {
+	position := l.position
+	for isDigit(l.ch) {
+		l.readChar()
+	}
+
+	return l.input[position:l.position]
+}
+
 func isLetter(ch byte) bool {
 	//recognizing "_" as letter so user can give name for a variable like "do_things"
 	return 'a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z' || ch == '_'
