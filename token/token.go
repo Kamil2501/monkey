@@ -16,6 +16,10 @@ const (
 
 	ASSIGN = "="
 	PLUS = "+"
+	MINUS = "-"
+	BANG = "!"
+	ASTERISK = "*"
+	SLASH = "/"
 
 	COMMA = ","
 	SEMICOLON = ";"
