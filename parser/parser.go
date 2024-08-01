@@ -35,6 +35,15 @@ func (p *Parser) ParseProgram() *ast.Program {
 	return program
 }
 
+func (p *Parser) parseStatement() ast.Statement {
+	switch p.curToken.Type {
+	case token.LET:
+		return p.parseLetStatement()
+	default:
+		return nil
+	}
+}
+
 func New(l *lexer.Lexer) *Parser {
 	p := &Parser{l: l}
 	//set curToken and peekToken
