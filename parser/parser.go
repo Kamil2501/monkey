@@ -21,3 +21,12 @@ func (p *Parser) nextToken() {
 func (p *Parser) ParseProgram() *ast.Program {
 	return nil
 }
+
+func New(l *lexer.Lexer) *Parser {
+	p := &Parser{l: l}
+	//set curToken and peekToken
+	p.nextToken()
+	p.nextToken()
+
+	return p
+}
