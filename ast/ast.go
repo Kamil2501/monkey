@@ -28,6 +28,12 @@ func (p *Program) TokenLiteral() string {
 	}
 }
 
+type LetStatement struct {
+	Token token.Token //token.LET
+	Name *Identifier
+	Value Expression
+}
+
 type Identifier struct {
 	Token token.Token //token.IDENT
 	Value string
