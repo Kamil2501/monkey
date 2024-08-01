@@ -1,5 +1,7 @@
 package ast
 
+import "monkey/token"
+
 type Node interface {
 	TokenLiteral() string
 }
@@ -24,4 +26,9 @@ func (p *Program) TokenLiteral() string {
 	} else {
 		return ""
 	}
+}
+
+type Identifier struct {
+	Token token.Token //token.IDENT
+	Value string
 }
