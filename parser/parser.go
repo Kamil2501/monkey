@@ -1,8 +1,9 @@
 package parser
 
 import (
-	"go/token"
+	"monkey/ast"
 	"monkey/lexer"
+	"monkey/token"
 )
 
 type Parser struct {
@@ -10,4 +11,13 @@ type Parser struct {
 
 	curToken token.Token
 	peekToken token.Token
+}
+
+func (p *Parser) nextToken() {
+	p.curToken = p.peekToken
+	p.peekToken = p.l.NextToken()
+}
+
+func (p *Parser) ParseProgram() *ast.Program {
+	return nil
 }
