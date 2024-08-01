@@ -44,6 +44,26 @@ func (p *Parser) parseStatement() ast.Statement {
 	}
 }
 
+func (p *Parser) parseLetStatement() *ast.LetStatement {
+	stmt := &ast.LetStatement{Token: p.curToken}
+	
+	if !p.expectPeek(token.IDENT) {
+		return nil
+	}
+
+	stmt.Name = &ast.Identifier{Token: p.curToken, Value: p.curToken.Literal}
+
+	if !p.expectPeek(token.ASSIGN) {
+		return nil	
+	}
+
+	for !p.curTokenIs(token.SEMICOLON) {
+		p.nextToken()
+	}
+
+	return stmt
+}
+
 func New(l *lexer.Lexer) *Parser {
 	p := &Parser{l: l}
 	//set curToken and peekToken
