@@ -83,8 +83,12 @@ func (p *Parser) expectPeek(t token.TokenType) bool {
 	}
 }
 
+func (p *Parser) Errors() []string {
+	return p.errors
+}
+
 func New(l *lexer.Lexer) *Parser {
-	p := &Parser{l: l}
+	p := &Parser{l: l, errors: []string{}}
 	//set curToken and peekToken
 	p.nextToken()
 	p.nextToken()
