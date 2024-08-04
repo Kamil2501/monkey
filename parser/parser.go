@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	_ int iota
+	_ int = iota
 	LOWEST
 	EQUALS // ==
 	LESSGREATER // > <
