@@ -159,6 +159,10 @@ func (p *Parser) parseExpressions(precedense int) ast.Expression {
 	return leftExp
 }
 
+func (p *Parser) parseIdentifier() ast.Expression {
+	return &ast.Identifier{Token: p.curToken, Value: p.curToken.Literal}	
+}
+
 func New(l *lexer.Lexer) *Parser {
 	p := &Parser{l: l, errors: []string{}}
 	//set curToken and peekToken
