@@ -225,6 +225,20 @@ func (p *Parser) curPrecedence() int {
 	return LOWEST
 }
 
+func (p *Parser) parseInfixExpression(left ast.Expression) ast.Expression {
+	expression := &ast.InfixExpression{
+		Token: p.curToken,
+		Operator: p.curToken.Literal,
+		Left: left,
+	}
+
+	precedences := p.curPrecedence()
+	p.nextToken()
+	expression.Right = p.parseExpressions(precedences)
+
+	return expression
+}
+
 func New(l *lexer.Lexer) *Parser {
 	p := &Parser{l: l, errors: []string{}}
 	//set curToken and peekToken
