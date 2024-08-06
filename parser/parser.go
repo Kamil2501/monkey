@@ -241,9 +241,9 @@ func (p *Parser) parseInfixExpression(left ast.Expression) ast.Expression {
 		Left: left,
 	}
 
-	precedences := p.curPrecedence()
+	precedence := p.curPrecedence()
 	p.nextToken()
-	expression.Right = p.parseExpressions(precedences)
+	expression.Right = p.parseExpressions(precedence)
 
 	return expression
 }
