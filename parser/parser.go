@@ -298,5 +298,7 @@ func New(l *lexer.Lexer) *Parser {
 
 	p.registerPrefix(token.LPAREN, p.parseGroupedExpression)
 
+	p.registerPrefix(token.IF, p.parseIfExpression)
+
 	return p
 }
