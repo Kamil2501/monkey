@@ -286,7 +286,7 @@ func (p *Parser) parseIfExpression() ast.Expression {
 		return nil
 	}
 
-	if !p.expectPeek(token.LPAREN) {
+	if !p.expectPeek(token.LBRACE) {
 		return nil
 	}
 
