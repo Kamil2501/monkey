@@ -178,7 +178,7 @@ type BlockStatement struct {
 	Statements []Statement
 }
 
-func (bs *BlockStatement) statementNode()
+func (bs *BlockStatement) statementNode() {}
 func (bs *BlockStatement) TokenLiteral() string { return bs.Token.Literal }
 func (bs *BlockStatement) String() string {
 	var out bytes.Buffer
@@ -206,7 +206,7 @@ func (ie *IfExpression) String() string {
 	out.WriteString("if")
 	out.WriteString(ie.Condition.String())
 	out.WriteString(" ")
-	out.Write(ie.Consequence.String())
+	out.WriteString(ie.Consequence.String())
 
 	if ie.Alternative != nil {
 		out.WriteString("else ")
