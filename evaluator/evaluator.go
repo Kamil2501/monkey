@@ -64,6 +64,6 @@ func evalBangOperator(right object.Object) object.Object {
 	case NULL:
 		return TRUE
 	default:
-		return TRUE
+		return FALSE
 	}
 }
