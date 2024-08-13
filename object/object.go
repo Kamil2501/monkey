@@ -64,7 +64,7 @@ func (e *Environment) Set(name string, val Object) Object {
 	return val
 }
 
-func newEnvironment() *Environment {
+func NewEnvironment() *Environment {
 	s := make(map[string]Object)
 	return &Environment{store: s}
 }
